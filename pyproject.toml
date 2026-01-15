@@ -1,7 +1,7 @@
 [project]
 name = "flask-rest-api-system"
 version = "0.1.0"
-description = "Add your description here"
+description = "REST API with JWT authentication, SQLite, and pytest testing"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
