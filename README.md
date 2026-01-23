@@ -1,28 +1,32 @@
+README in [Spanish](README.es.md)
+
 # Flask REST API System
 
-API REST en Flask con autenticación JWT, gestión de usuarios y operaciones persistidas en SQLite.
+Implemented JWT-based authentication with Werkzeug password hashing and 24-hour token expiration. Designed RESTful endpoints with role-based access control via decorator pattern. Persisted operations data in SQLite with proper transaction management and error handling. Developed a comprehensive test suite using pytest with 100% endpoint coverage. Tech stack: Flask, Werkzeug, PyJWT, SQLite3.
 
-## Características
+REST API in Flask with JWT authentication, user management, and persistent operations in SQLite.
 
-- Registro y login de usuarios con contraseñas hasheadas (Werkzeug) y JWT con expiración de 24h.
-- Base de datos SQLite inicializada automáticamente con tablas `users` y `api_operations`.
-- Decorador `@token_required` para proteger endpoints y obtener el usuario actual desde el token.
-- Endpoints para crear y listar operaciones del usuario autenticado.
-- Endpoint de salud `/api/status` y perfil con estadísticas de actividad `/api/user/profile`.
-- Tests con `pytest` y proyecto gestionado vía `pyproject.toml`.
+## Characteristics
 
-## Endpoints principales
+- Registration and login of users with hashed passwords (Werkzeug) and JWT with 24h expiration.
+- SQLite database automatically initialized with `users` and `api_operations` tables.
+- Decorator `@token_required` to protect endpoints and obtain the current user from the token.
+- Endpoints to create and list authenticated user operations.
+- Health endpoint `/api/status` and profile with activity statistics `/api/user/profile`.
+- Tests with `pytest` and project managed via `pyproject.toml`.
 
-- `POST /api/register` – Registro de usuario.
-- `POST /api/login` – Autenticación y obtención de JWT.
+## Main Endpoints
+
+- `POST /api/register` – User registration.
+- `POST /api/login` – Authentication and obtaining JWT.
 - `GET /api/status` – Health check.
-- `POST /api/operations` – Crear operación (requiere JWT).
-- `GET /api/operations` – Listar operaciones del usuario (requiere JWT).
-- `GET /api/user/profile` – Perfil + estadísticas de operaciones (requiere JWT).
+- `POST /api/operations` – Create operation (requires JWT).
+- `GET /api/operations` – List user operations (requires JWT).
+- `GET /api/user/profile` – Profile + operation statistics (requires JWT).
 
-## Stack técnico
+## Technical Stack
 
 - Flask 3.x, Werkzeug, Jinja2.
-- PyJWT para generación y validación de tokens.
-- SQLite3 para persistencia.
-- Pytest para pruebas.
+- PyJWT for token generation and validation.
+- SQLite3 for persistence.
+- Pytest for testing.
