@@ -7,7 +7,7 @@ Author: Jorge de la Flor
 from flask import Flask, request, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 import sqlite3
 from functools import wraps
 import json
@@ -205,7 +205,7 @@ def login():
                 'username': user['username'],
                 'user_id': user['id'],
                 'role': user['role'],
-                'exp': datetime.utcnow() + timedelta(hours=24)
+                'exp': datetime.now(timezone.utc) + timedelta(hours=24)
             }, app.config['SECRET_KEY'], algorithm='HS256')
             
             return jsonify({
@@ -269,7 +269,7 @@ def api_status():
     """API health check endpoint"""
     return jsonify({
         'status': 'active',
-        'timestamp': datetime.utcnow().isoformat(),
+        'timestamp':  datetime.now().astimezone().isoformat(),
         'version': '1.0.0',
         'message': 'API is running successfully'
     }), 200

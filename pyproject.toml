@@ -3,15 +3,19 @@ name = "flask-rest-api-system"
 version = "0.1.0"
 description = "REST API with JWT authentication, SQLite, and pytest testing"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.14"
 dependencies = [
     "flask>=3.1.2",
     "pyjwt>=2.10.1",
-    "pytest>=9.0.2",
     "werkzeug>=3.1.5",
 ]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["test"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]
 
