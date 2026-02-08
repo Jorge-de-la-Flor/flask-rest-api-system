@@ -2,6 +2,9 @@
 name = "flask-rest-api-system"
 version = "0.1.0"
 description = "REST API with JWT authentication, SQLite, and pytest testing"
+authors = [
+    { name = "Jorge de la Flor", email = "frostcore.dev@proton.me" }
+]
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
